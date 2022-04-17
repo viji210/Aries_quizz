@@ -41,7 +41,7 @@
     {% endautoescape %}<br>
 
 <!--Quiz Interface -->
-<form class="form-group" method="post" action="{% url 'quizbrain:quiz' category=question.category %}">
+<form class="form-group" method="post" action="{% url 'quizbrain:quiz' category=question.category q_no=question_index %}">
     {% csrf_token %}
     {% if show_next %}
     {% for key, value in choice_list.items %}

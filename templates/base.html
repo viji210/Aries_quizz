@@ -37,7 +37,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             {% for category_item in category%}
             {% if question.category != category_item %}
-            <a class="dropdown-item" href="{% url 'quizbrain:quiz' category=category_item %}">{{ category_item }}</a>
+            <a class="dropdown-item" href="{% url 'quizbrain:quiz' category=category_item q_no=0 %}">{{ category_item }}</a>
             {% endif %}
             {% endfor %}
         </div>
@@ -48,8 +48,6 @@
 </nav>
 
 {% block content %}{% endblock %}
-<div class="container">
-<br><p>💗💗Made with love from aries💗💗</p><br><br>
-    </div>
+
 </body>
 </html>

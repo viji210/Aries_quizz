@@ -5,5 +5,5 @@ app_name = "quizbrain"
 
 urlpatterns = [
     path("", views.home, name="home_page"),
-    path("quiz/<str:category>", views.quiz, name="quiz"),
+    path("quiz/<str:category>/<int:q_no>", views.quiz, name="quiz"),
 ]
