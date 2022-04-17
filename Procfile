@@ -1,1 +1,1 @@
-web: gunicorn quizzeler.quizzeler.wsgi
+web: gunicorn quizzeler.wsgi
