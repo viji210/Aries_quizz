@@ -1,0 +1,190 @@
+
+.choice-field{
+    border: solid 0.8px;
+    padding: 1.73rem;
+    width: 100%;
+}
+
+.choice-field:hover{
+    background-color: darkturquoise;
+}
+
+.form-check-input{
+    padding:10px;
+}
+
+pre.prettyprinted ol.linenums li {
+    margin-bottom: 0!important;
+    white-space: break-spaces;
+    /*padding-left: 4.8rem;*/
+    text-indent: -4.8rem;
+}
+
+pre.prettyprinted ol.linenums>li {
+    counter-increment: customlistcounter;
+}
+
+pre.prettyprinted ol.linenums>li:before {
+    content: counter(customlistcounter) ' ';
+    width: 4rem;
+    display: inline-block;
+    text-align: right;
+    padding-right: 0.4rem;
+    margin-right: 1.6rem;
+    border-right: 1px solid #d1d7dc;
+    color: #d1d7dc;
+}
+
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8 , li.L9{
+    list-style-type: none;
+}
+
+pre.prettyprinted .pln {
+    color: #1c1d1f;
+}
+
+pre.prettyprinted .pun, pre.prettyprinted .opn, pre.prettyprinted .clo {
+    color: #1c1d1f;
+}
+
+pre.prettyprinted .lit {
+    color: #1c1d1f;
+}
+
+pre.prettyprinted .kwd {
+    color: #b4690e;
+}
+
+pre.prettyprinted .str {
+    color: #2d907f;
+}
+
+code {
+    background-color: #fff;
+    border: 1px solid #d1d7dc;
+    color: #b4690e;
+    font-size: 90%;
+    padding: 0.2rem 0.4rem;
+}
+
+code, samp, kbd, pre {
+    font-family: sfmono-regular,Consolas,liberation mono,Menlo,Courier,monospace;
+}
+
+
+.label-container {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.label-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 34px;
+  left: 27.5px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.label-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.label-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.label-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.label-container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.space{
+    position: relative;
+    left: 4rem;
+    margin-right:0.4rem
+}
+
+.btn {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   color: #FFFFFF;
+   font-size: 1.2rem;
+   font-weight: 700;
+   padding: 17px 50px;
+   background-color: #1D5C63;
+   border: solid #0059A0 1px;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
+}
+
+.btn:hover {
+   background: #1A3C40;
+   border: solid #337FED 1px;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   text-decoration: none;
+}
+
+.navbar-brand {
+    padding_left:5em;
+}
+
+.nav-item {
+    margin-left:30px;
+    font-size:1.2rem;
+    font-weight:500;
+}
+
+.quizzeler {
+    font-size:1.7rem;
+    font-weight:750;
+}
+
+.messages {
+    font-weight:600;
+    margin-top:1rem;
+}
+
+.welcome{
+    font-weight:750;
+}

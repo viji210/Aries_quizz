@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ question.category }}
+{% endblock %}
+
+{% block content %}
+<!--<div style="background-image: url({% static 'quizbrain/images/background1.jpg' %}); background-size:100%;">-->
+<div class="container">
+    <br>
+    <h2>{{ question.category }}</h2><br>
+<!-- Messages Section -->
+{% if messages %}
+    {% for message in messages %}
+
+    {% if message.tags == "success" %}
+    <div class="alert alert-success" role="alert">
+    {% autoescape off %}
+        <p class="messages">{{ message }}</p>
+    {% endautoescape %}
+    </div>
+    {% elif message.tags == "warning" %}
+    <div class="alert alert-danger" role="alert">
+    {% autoescape off %}
+        <p class="messages">{{ message }}</p>
+    {% endautoescape %}
+    </div>
+    {% endif %}
+    {% endfor %}
+{% endif %}
+
+<!-- checks the end of the quiz -->
+{% if end_of_quiz %}
+    <h2>You have reached the end of the quiz, welldone you did it great</h2>
+    <a name="home-button" href="{% url 'quizbrain:home_page' %}">To the Home</a>
+
+{% else %}
+    <h4>Question {{ question_no }}:</h4><br>
+    {% autoescape off %}
+    <h4>{{ question.question }}</h4>
+    {% endautoescape %}<br>
+
+<!--Quiz Interface -->
+<form class="form-group" method="post" action="{% url 'quizbrain:quiz' category=question.category %}">
+    {% csrf_token %}
+    {% if show_next %}
+    {% for key, value in choice_list.items %}
+
+        {% if question.answer == value %}
+        <label class="form-check-label label-container" for='{{ key }}'>
+        <div class="choice-field">
+        <div class="row">
+        <input class="form-check-input" type="radio" id='{{ key }}' name="multichoice" checked>
+            <span class="checkmark"></span>
+            <span class="space">
+            {% autoescape off %}
+            {{ value }}
+            {% endautoescape %}
+            </span>
+            </div>
+        </div>
+        </label><br>
+
+        {% elif value != None %}
+        <label class="form-check-label label-container" for='{{ key }}'>
+        <div class="choice-field">
+            <div class="row">
+        <input class="form-check-input" type="radio" id='{{ key }}' name="multichoice" disabled>
+        <span class="checkmark"></span>
+        <span class="space">
+        {% autoescape off %}
+            {{ value }}
+        {% endautoescape %}
+            </span>
+            </div>
+        </div>
+        </label>
+    <br>
+        {% endif %}
+
+    {% endfor %}
+
+    <input type="hidden" name="question_category" value="{{ question.category }}">
+    <input type="hidden" name="move_on" value="move_on">
+    <p align="right"><button class="btn btn-lg btn-secondary" type="submit" name="next-btn">Next</button></p>
+
+    {% else%}
+
+    {% for key, value in choice_list.items %}
+    {% if value != None %}
+
+
+    <label class="form-check-label label-container" for='{{ key }}'>
+    <div class="choice-field">
+        <div class="row">
+        <input class="form-check-input" type="radio" id='{{ key }}' name="multichoice" value='{{ value }}'>
+        <span class="checkmark"></span>
+        <span class="space">
+        {% autoescape off %}
+            {{ value }}
+        {% endautoescape %}
+            </span>
+        </div>
+    </div>
+    </label>
+
+    <br>
+    {% endif %}
+    {% endfor %}
+
+    <input type="hidden" name="question_category" value="{{ question.category }}">
+    <input type="hidden" name="real_answer" value="{{ question.answer }}">
+
+    <p align="right"><button class="btn btn-lg btn-secondary" type="submit" name="check-btn">Check Answer</button></p>
+
+    {% endif %}
+
+</form>
+{% endif %}
+
+</div>
+</div>
+<br><br>
+{% endblock %}
+
